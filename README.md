@@ -16,8 +16,8 @@ yarn dev # or npm run dev
 ## What's Added
 
 - [x] Vue Router
-- [x] Registered Service Worker
-- [x] Offline Support
+- [x] Registered Service Worker (SW is attached on production only)
+- [x] Offline Support (manifests are managed automatically)
 - [x] Pre-render SPA
 - [x] [Vue Material](https://github.com/marcosmoura/vue-material) (with base layout)
 - [ ] Vuex
