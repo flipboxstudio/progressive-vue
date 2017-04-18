@@ -2,6 +2,8 @@
 
 > Vue.js with Progressive Enhancement
 
+![Lighthouse Score](https://github.com/flipboxstudio/progressive-vue/blob/master/screenshots/result.png?raw=true)
+
 ## Quick Start
 
 ```sh
