@@ -20,5 +20,6 @@ yarn dev # or npm run dev
 - [x] Offline Support (manifests are managed automatically)
 - [x] Pre-render SPA
 - [x] [Vue Material](https://github.com/marcosmoura/vue-material) (with base layout)
-- [ ] Vuex
-- [ ] Vue Resource
+- [x] Vuex
+- [x] Vue Resource
+
