@@ -5,7 +5,7 @@
         <md-icon>menu</md-icon>
       </md-button>
 
-      <div class="md-title" v-text="pageTitle"></div>
+      <div id="page-title" class="md-title" v-text="pageTitle"></div>
     </md-whiteframe>
 
     <slot></slot>

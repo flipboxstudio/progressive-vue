@@ -4,7 +4,7 @@
  * Plase note, when you enabling/disabling the component, make sure it's styles
  * also enabled/disabled. The CSS is imported via app.scss file under src/assets/styles directory.
  *
- * TODO: Move this to somewhere, so we can define it components easier.
+ * TODO: Move this to somewhere, so we can define the components even easier.
  */
 
 import Vue from 'vue'
@@ -18,11 +18,11 @@ import MdButton from 'vue-material/dist/components/mdButton'
 // import MdCheckbox from 'vue-material/dist/components/mdCheckbox'
 // import MdChips from 'vue-material/dist/components/mdChips'
 // import MdDialog from 'vue-material/dist/components/mdDialog'
-// import MdDivider from 'vue-material/dist/components/mdDivider'
+import MdDivider from 'vue-material/dist/components/mdDivider'
 // import MdFile from 'vue-material/dist/components/mdFile'
 import MdIcon from 'vue-material/dist/components/mdIcon'
 // import MdImage from 'vue-material/dist/components/mdImage'
-// import MdInputContainer from 'vue-material/dist/components/mdInputContainer'
+import MdInputContainer from 'vue-material/dist/components/mdInputContainer'
 import MdLayout from 'vue-material/dist/components/mdLayout'
 import MdList from 'vue-material/dist/components/mdList'
 // import MdMenu from 'vue-material/dist/components/mdMenu'
@@ -52,11 +52,11 @@ const Plugins = {
   // MdCheckbox,
   // MdChips,
   // MdDialog,
-  // MdDivider,
+  MdDivider,
   // MdFile,
   MdIcon,
   // MdImage,
-  // MdInputContainer,
+  MdInputContainer,
   MdLayout,
   MdList,
   // MdMenu,
@@ -90,11 +90,11 @@ Vue.use(Plugins)
 
 Vue.material.registerTheme({
   default: {
-    primary: 'indigo',
+    primary: 'blue',
     accent: 'pink'
   },
   white: {
     primary: 'white',
-    accent: 'indigo'
+    accent: 'blue'
   }
 })

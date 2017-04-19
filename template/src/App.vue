@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="container">
-    <md-sidenav class="main-sidebar md-left md-fixed" md-swipeable ref="main-sidebar">
+    <md-sidenav id="main-sidebar" class="md-left md-fixed" md-swipeable ref="main-sidebar">
       <md-toolbar class="logo" md-theme="white">
         <router-link exact to="/">
-          <img @onLoadImage="onLoadImage" src="/static/img/logo.png" />
+          <img @onLoadImage="onLoadImage" src="/static/icons/icon-512x512.png" />
           <span>App</span>
         </router-link>
       </md-toolbar>
@@ -11,7 +11,11 @@
       <div class="main-sidebar-links">
         <md-list class="md-dense">
           <md-list-item>
-            <router-link to="/">Dashboard</router-link>
+            <router-link exact to="/">Dashboard</router-link>
+          </md-list-item>
+
+          <md-list-item>
+            <router-link exact to="/profile">Profile</router-link>
           </md-list-item>
         </md-list>
       </div>

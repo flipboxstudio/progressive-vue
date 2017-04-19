@@ -1,11 +1,19 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import './sw'
+import './http'
 import Vue from 'vue'
 import './materialize'
 import App from './App'
+import store from './store'
 import router from './router'
+import VeeValidate from 'vee-validate'
+import MdForm from './components/MdForm'
 import PageContent from './components/PageContent'
+import MdFormContent from './components/MdFormContent'
+import MdFormSection from './components/MdFormSection'
+
+Vue.use(VeeValidate)
 
 Vue.config.productionTip = false
 
@@ -17,9 +25,13 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 Vue.component('page-content', PageContent)
+Vue.component('md-form', MdForm)
+Vue.component('md-form-content', MdFormContent)
+Vue.component('md-form-section', MdFormSection)
 
 var root = new Vue({
   el: '#app',
+  store,
   router,
   template: '<App ref="app"/>',
   components: { App },

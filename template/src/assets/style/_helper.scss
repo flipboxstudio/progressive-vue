@@ -1,0 +1,9 @@
+.container {
+  .full-width {
+    width: 100%;
+
+    &.md-button {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.page-content {
+  min-height: 100%;
+  max-height: 100%;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+
+  .main-header {
+    z-index: 2;
+    color: #fff !important;
+  }
+
+  .nav-trigger {
+    @media (min-width: 1281px) {
+      display: none;
+    }
+  }
+
+  #page-title {
+    flex: 1;
+    @media (min-width: 1281px) {
+      margin-left: 16px;
+    }
+  }
+
+  .main-content {
+    padding: 24px;
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    background-color: #f8f8f8;
+  }
+}

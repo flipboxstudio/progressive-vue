@@ -1,11 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-const Dashboard = resolve => {
-  // require.ensure is Webpack's special syntax for a code-split point.
-  require.ensure(['@/pages/Dashboard'], () => {
-    resolve(require('@/pages/Dashboard'))
-  })
-}
+import Dashboard from '@/pages/Dashboard'
+import Profile from '@/pages/Profile'
 
 Vue.use(Router)
 
@@ -16,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'dashboard',
       component: Dashboard
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: Profile
     }
   ]
 })
