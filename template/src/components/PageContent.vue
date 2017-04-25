@@ -14,14 +14,18 @@
 
 <script>
   export default {
+    name: 'PageContent',
+
     props: {
       pageTitle: String
     },
+
     methods: {
       toggleSidenav () {
         this.$root.toggleSidenav()
       }
     },
+
     mounted () {
       document.title = this.pageTitle
     }

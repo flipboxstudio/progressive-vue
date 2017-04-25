@@ -22,4 +22,5 @@ yarn dev # or npm run dev
 - [x] [Vue Material](https://github.com/marcosmoura/vue-material) (with base layout)
 - [x] Vuex
 - [x] Vue Resource
+- [x] Page Loader
 

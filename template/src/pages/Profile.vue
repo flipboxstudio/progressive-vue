@@ -3,7 +3,7 @@
     <div class="main-content">
       <md-form novalidate @submit.stop.prevent="submit" :class="{loading: profile.form.loading}">
         <template slot="left">
-          <md-form-content legend="Basic Information">
+          <md-form-content legend="Basic Information" @reset="RESET_BASIC">
             <md-form-section>
               <md-input-container slot="left" :class="{'md-input-invalid': errors.has('first_name')}">
                 <label>First Name</label>
@@ -35,7 +35,7 @@
 
           <md-divider></md-divider>
 
-          <md-form-content legend="Address">
+          <md-form-content legend="Address" :readonly="true">
             <md-form-section>
               <md-input-container slot="left">
                 <label>Street</label>
@@ -63,7 +63,7 @@
 
           <md-divider></md-divider>
 
-          <md-form-content legend="Picture">
+          <md-form-content legend="Picture" :readonly="true">
             <md-layout md-gutter="24" md-flex="100">
               <md-layout>
                 <div class="profile-picture-wrapper">
@@ -81,7 +81,7 @@
 
           <md-divider></md-divider>
 
-          <md-form-content name="Raw Data">
+          <md-form-content legend="Raw Data" :readonly="true">
             <pre v-text="profile"></pre>
           </md-form-content>
         </template>
@@ -129,7 +129,7 @@ import * as PROFILE_TYPE from '@/store/modules/profile/types'
 export default {
   computed: {
     ...mapState({
-      profile: state => state.profile
+      profile: ({ profile }) => profile
     })
   },
 
@@ -160,6 +160,7 @@ export default {
     ]),
 
     ...mapMutations([
+      PROFILE_TYPE.RESET_BASIC,
       PROFILE_TYPE.SET_FIRSTNAME,
       PROFILE_TYPE.SET_LASTNAME,
       PROFILE_TYPE.SET_EMAIL,
@@ -167,7 +168,7 @@ export default {
     ]),
 
     submit () {
-      //
+      this.$validator.validateAll().then(() => {}, () => {})
     }
   }
 }

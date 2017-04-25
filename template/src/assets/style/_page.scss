@@ -10,6 +10,10 @@
     color: #fff !important;
   }
 
+  pre, code, xmp, plaintext, listing {
+    font-family: 'Roboto Mono', monospace;
+  }
+
   .nav-trigger {
     @media (min-width: 1281px) {
       display: none;

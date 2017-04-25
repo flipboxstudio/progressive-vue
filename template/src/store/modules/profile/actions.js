@@ -1,4 +1,4 @@
-import http from '@/http'
+import { http } from '@/app'
 import { SET_FORM_LOADING, SET_PROFILE, FETCH_PROFILE } from './types'
 
 export default {

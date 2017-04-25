@@ -5,6 +5,18 @@ export default {
     Object.assign(state, payload)
   },
 
+  [TYPE.RESET_BASIC] (state) {
+    Object.assign(state, {
+      name: {
+        title: '',
+        first: '',
+        last: ''
+      },
+      email: '',
+      phone: ''
+    })
+  },
+
   [TYPE.SET_FORM_LOADING] (state, formState) {
     state.form.loading = formState
   },

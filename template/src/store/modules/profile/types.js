@@ -1,5 +1,6 @@
 export const SET_FORM_LOADING = 'SET_FORM_LOADING'
 export const SET_PROFILE = 'SET_PROFILE'
+export const RESET_BASIC = 'RESET_BASIC'
 export const SET_FIRSTNAME = 'SET_FIRSTNAME'
 export const SET_LASTNAME = 'SET_LASTNAME'
 export const SET_EMAIL = 'SET_EMAIL'

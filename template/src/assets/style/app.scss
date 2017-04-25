@@ -1,3 +1,7 @@
+@import '~pace-progress/themes/blue/pace-theme-minimal';
+@import url("//fonts.googleapis.com/css?family=Roboto+Mono:100,400,500,700");
+@import url("//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,400italic");
+@import url("//fonts.googleapis.com/icon?family=Material+Icons");
 @import 'materialize';
 @import 'variables';
 @import 'normalize';
@@ -5,6 +9,10 @@
 @import 'page';
 @import 'form';
 @import 'helper';
+
+.pace .pace-progress {
+  background: $secondary-color;
+}
 
 .container {
   min-height: 100%;

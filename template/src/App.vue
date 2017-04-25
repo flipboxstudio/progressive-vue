@@ -3,7 +3,7 @@
     <md-sidenav id="main-sidebar" class="md-left md-fixed" md-swipeable ref="main-sidebar">
       <md-toolbar class="logo" md-theme="white">
         <router-link exact to="/">
-          <img @onLoadImage="onLoadImage" src="/static/icons/icon-512x512.png" />
+          <img src="/static/icons/icon-512x512.png" />
           <span>App</span>
         </router-link>
       </md-toolbar>
@@ -28,6 +28,7 @@
 <script>
 export default {
   name: 'app',
+
   methods: {
     toggleSidenav () {
       this.$refs['main-sidebar'].toggle()
@@ -39,17 +40,11 @@ export default {
 
     closeSidenav () {
       this.$refs['main-sidebar'].close()
-    },
-
-    onLoadImage () {
-      console.log(arguments)
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import url("//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,400italic");
-@import url("//fonts.googleapis.com/icon?family=Material+Icons");
 @import "/assets/style/app";
 </style>
