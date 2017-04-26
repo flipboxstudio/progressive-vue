@@ -1,6 +1,9 @@
 import * as TYPES from './types'
+import genericMutator from '@/util/generic-mutator'
 
 export default {
+  [TYPES.SET_STATE]: genericMutator,
+
   [TYPES.SET_PROFILE] (state, payload) {
     Object.assign(state, payload)
   },
@@ -15,25 +18,5 @@ export default {
       email: '',
       phone: ''
     })
-  },
-
-  [TYPES.SET_FORM_LOADING] (state, formState) {
-    state.form.loading = formState
-  },
-
-  [TYPES.SET_FIRSTNAME] (state, value) {
-    state.name.first = value
-  },
-
-  [TYPES.SET_LASTNAME] (state, value) {
-    state.name.last = value
-  },
-
-  [TYPES.SET_EMAIL] (state, value) {
-    state.email = value
-  },
-
-  [TYPES.SET_PHONE] (state, value) {
-    state.phone = value
   }
 }

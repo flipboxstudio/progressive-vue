@@ -1,8 +1,7 @@
-export const SET_EMAIL = 'SET_EMAIL'
-export const SET_PASSWORD = 'SET_PASSWORD'
-export const SET_TOKEN = 'SET_TOKEN'
-export const SET_FORM_LOADING = 'SET_FORM_LOADING'
+export const TAG = 'AUTH' // TAG must be unique across module
 
-export const IS_AUTHENTICATED = 'IS_AUTHENTICATED'
+export const SET_STATE = `${TAG}_SET_STATE`
 
-export const AUTHENTICATE = 'AUTHENTICATE'
+export const IS_AUTHENTICATED = `${TAG}_IS_AUTHENTICATED`
+
+export const AUTHENTICATE = `${TAG}_AUTHENTICATE`

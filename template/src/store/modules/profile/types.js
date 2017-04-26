@@ -1,9 +1,7 @@
-export const SET_FORM_LOADING = 'SET_FORM_LOADING'
-export const SET_PROFILE = 'SET_PROFILE'
-export const RESET_BASIC = 'RESET_BASIC'
-export const SET_FIRSTNAME = 'SET_FIRSTNAME'
-export const SET_LASTNAME = 'SET_LASTNAME'
-export const SET_EMAIL = 'SET_EMAIL'
-export const SET_PHONE = 'SET_PHONE'
+export const TAG = 'PROFILE' // TAG must be unique across module
 
-export const FETCH_PROFILE = 'FETCH_PROFILE'
+export const SET_STATE = `${TAG}_SET_STATE`
+export const SET_PROFILE = `${TAG}_SET_PROFILE`
+export const RESET_BASIC = `${TAG}_RESET_BASIC`
+
+export const FETCH_PROFILE = `${TAG}_FETCH_PROFILE`

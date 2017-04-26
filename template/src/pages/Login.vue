@@ -9,7 +9,7 @@
         <md-layout>
           <md-input-container class="md-has-value" :class="{'md-input-invalid': errors.has('email')}">
             <label>Email</label>
-            <md-input :value="auth.email" @input="SET_EMAIL" data-vv-name="email" v-validate="'email|required'" placeholder="eg: johndoe@example.com" autofocus></md-input>
+            <md-input :value="auth.email" @input="setState({accessor: 'email', value: $event})" data-vv-name="email" v-validate="'email|required'" placeholder="eg: johndoe@example.com" autofocus></md-input>
             <span class="md-error" v-text="errors.first('email')"></span>
           </md-input-container>
         </md-layout>
@@ -17,7 +17,7 @@
         <md-layout>
           <md-input-container class="md-has-value" :class="{'md-input-invalid': errors.has('password')}">
             <label>Password</label>
-            <md-input :value="auth.password" @input="SET_PASSWORD" data-vv-name="password" v-validate="'required'" type="password" placeholder="Your password"></md-input>
+            <md-input :value="auth.password" @input="setState({accessor: 'password', value: $event})" data-vv-name="password" v-validate="'required'" type="password" placeholder="Your password"></md-input>
             <span class="md-error" v-text="errors.first('password')"></span>
           </md-input-container>
         </md-layout>
@@ -36,7 +36,7 @@
 <script>
 import { Validator } from 'vee-validate'
 import { mapState, mapActions, mapMutations } from 'vuex'
-import { AUTHENTICATE, SET_EMAIL, SET_PASSWORD } from '@/store/modules/auth/types'
+import { AUTHENTICATE, SET_STATE } from '@/store/modules/auth/types'
 
 export default {
   computed: {
@@ -61,10 +61,9 @@ export default {
   },
 
   methods: {
-    ...mapMutations([
-      SET_EMAIL,
-      SET_PASSWORD
-    ]),
+    ...mapMutations({
+      setState: SET_STATE
+    }),
 
     ...mapActions([
       AUTHENTICATE

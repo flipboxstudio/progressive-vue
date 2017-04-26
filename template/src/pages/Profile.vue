@@ -3,17 +3,17 @@
     <div class="main-content">
       <md-form novalidate @submit.stop.prevent="submit" :class="{loading: profile.form.loading}">
         <template slot="left">
-          <md-form-content legend="Basic Information" @reset="RESET_BASIC">
+          <md-form-content legend="Basic Information" @reset="resetBasic">
             <md-form-section>
               <md-input-container slot="left" :class="{'md-input-invalid': errors.has('first_name')}">
                 <label>First Name</label>
-                <md-input data-vv-name="first_name" v-validate="'required'" :value="profile.name.first" @input="SET_FIRSTNAME" required></md-input>
+                <md-input data-vv-name="first_name" v-validate="'required'" :value="profile.name.first" @input="setState({accessor: 'name.first', value: $event})" required></md-input>
                 <span class="md-error" v-text="errors.first('first_name')"></span>
               </md-input-container>
 
               <md-input-container slot="right" :class="{'md-input-invalid': errors.has('last_name')}">
                 <label>Last Name</label>
-                <md-input data-vv-name="last_name" v-validate="'required'" :value="profile.name.last" @input="SET_LASTNAME" required></md-input>
+                <md-input data-vv-name="last_name" v-validate="'required'" :value="profile.name.last" @input="setState({accessor: 'name.last', value: $event})" required></md-input>
                 <span class="md-error" v-text="errors.first('last_name')"></span>
               </md-input-container>
             </md-form-section>
@@ -21,13 +21,13 @@
             <md-form-section>
               <md-input-container slot="left" :class="{'md-input-invalid': errors.has('email')}">
                 <label>Email</label>
-                <md-input data-vv-name="email" v-validate="'required|email'" required type="email" :value="profile.email" @input="SET_EMAIL"></md-input>
+                <md-input data-vv-name="email" v-validate="'required|email'" required type="email" :value="profile.email" @input="setState({accessor: 'email', value: $event})"></md-input>
                 <span class="md-error" v-text="errors.first('email')"></span>
               </md-input-container>
 
               <md-input-container slot="right" :class="{'md-input-invalid': errors.has('phone')}">
                 <label>Phone</label>
-                <md-input data-vv-name="phone" v-validate="'required'" required :value="profile.phone" @input="SET_PHONE"></md-input>
+                <md-input data-vv-name="phone" v-validate="'required'" required :value="profile.phone" @input="setState({accessor: 'phone', value: $event})"></md-input>
                 <span class="md-error" v-text="errors.first('phone')"></span>
               </md-input-container>
             </md-form-section>
@@ -160,25 +160,22 @@ export default {
   },
 
   methods: {
-    ...mapMutations([
-      PROFILE_TYPES.RESET_BASIC,
-      PROFILE_TYPES.SET_FIRSTNAME,
-      PROFILE_TYPES.SET_LASTNAME,
-      PROFILE_TYPES.SET_EMAIL,
-      PROFILE_TYPES.SET_PHONE,
-      PROFILE_TYPES.SET_PROFILE
-    ]),
+    ...mapMutations({
+      setState: PROFILE_TYPES.SET_STATE,
+      resetBasic: PROFILE_TYPES.RESET_BASIC,
+      setProfile: PROFILE_TYPES.SET_PROFILE
+    }),
 
     submit () {
       this.$validator.validateAll().then(() => {
-        // Here's you can submit your changes
+        // Submit your changes
       }, () => {
         // TODO: Show snackbar
       })
     },
 
     revert () {
-      this[PROFILE_TYPES.SET_PROFILE](this.original)
+      this.setProfile(this.original)
     }
   }
 }

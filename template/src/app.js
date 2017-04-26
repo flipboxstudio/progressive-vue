@@ -21,7 +21,7 @@ export default {
           console.log('ServiceWorker Registered', registration)
         }, function (err) {
           // registration failed :(
-          console.log('ServiceWorker registration failed: ', err)
+          console.log('ServiceWorker registration failed.', err)
         })
 
       navigator.serviceWorker.ready.then(function (registration) {

@@ -1,26 +1,29 @@
+import { AUTHENTICATE, SET_STATE } from './types'
 import { FETCH_PROFILE } from '@/store/modules/profile/types'
-import { AUTHENTICATE, SET_FORM_LOADING, SET_TOKEN } from './types'
 
-const guid = () => {
-  function s4 () {
+function guid () {
+  function sequence () {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1)
   }
 
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4()
+  return sequence() + sequence() + '-' +
+         sequence() + '-' +
+         sequence() + '-' +
+         sequence() + '-' +
+         sequence() + sequence() + sequence()
 }
 
 export default {
   [AUTHENTICATE] ({ commit, dispatch }) {
     return new Promise(function (resolve, reject) {
-      commit(SET_FORM_LOADING, true)
+      commit(SET_STATE, {accessor: 'form.loading', value: true})
 
-      commit(SET_TOKEN, guid())
+      commit(SET_STATE, {accessor: 'token', value: guid()})
 
       dispatch(FETCH_PROFILE).then(() => {
-        commit(SET_FORM_LOADING, false)
+        commit(SET_STATE, {accessor: 'form.loading', value: false})
 
         resolve()
       }, () => {

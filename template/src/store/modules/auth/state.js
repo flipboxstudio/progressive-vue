@@ -1,5 +1,5 @@
 export default {
-  token: '',
+  token: '', // window.localStorage.getItem('token')
   email: '',
   password: '',
   form: {
