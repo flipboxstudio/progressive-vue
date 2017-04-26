@@ -61,10 +61,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: require.resolve('pace-progress'),
-        loader: 'imports-loader?define=>false'
       }
     ]
   }

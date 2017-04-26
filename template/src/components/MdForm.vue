@@ -1,5 +1,5 @@
 <template lang="html">
-  <form>
+  <form class="md-form">
     <md-layout md-gutter="24">
       <md-layout md-flex="65">
         <div class="full-width">

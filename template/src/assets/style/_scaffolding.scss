@@ -1,0 +1,42 @@
+[v-cloak] {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+body {
+  display: flex;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  .text-center {
+    text-align: center;
+  }
+
+  .md-icon + .icon-label {
+    margin-left: 8px;
+  }
+
+  &.anonymous {
+    background-color: #f8f8f8;
+  }
+
+  .error-wrapper {
+    height: 100%;
+    align-items: center;
+  }
+}

@@ -13,15 +13,6 @@ var PrerenderSpaPlugin = require('prerender-spa-plugin')
 var minify = require('html-minifier').minify
 var env = config.build.env
 
-// https://github.com/kangax/html-minifier#options-quick-reference
-var htmlMinifyOption = {
-  removeComments: true,
-  collapseWhitespace: true,
-  removeAttributeQuotes: true,
-  minifyCSS: true,
-  minifyJS: true
-}
-
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -64,14 +55,20 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: config.build.index,
       template: 'index.html',
       inject: true,
-      minify: htmlMinifyOption,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        minifyCSS: true,
+        minifyJS: true
+      },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: function (module, count) {
+      minChunks: function (module) {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.resource &&
@@ -96,31 +93,11 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
-    new PrerenderSpaPlugin(
-      // Absolute path to compiled SPA
-      path.join(__dirname, '../dist'),
-      // List of routes to prerender
-      [ '/' ],
-      {
-        postProcessHtml: function (context) {
-          var titles = {
-            '/': 'Dashboard'
-          }
-
-          var html = context.html.replace(
-            /<title>[^<]*<\/title>/i,
-            '<title>' + titles[context.route] + '</title>'
-          )
-
-          return minify(html, htmlMinifyOption)
-        }
-      }
-    ),
     // service worker caching
     new SWPrecacheWebpackPlugin({
       cacheId: 'my-vue-app',
       filename: 'service-worker.js',
-      staticFileGlobs: ['dist/**/*.{js,html,css}'],
+      staticFileGlobs: ['dist/**/*.{js,html,css,png}'],
       minify: true,
       stripPrefix: 'dist/'
     })

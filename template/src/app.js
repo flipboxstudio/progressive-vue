@@ -1,6 +1,5 @@
 import './materialize'
 import Vue from 'vue'
-import Pace from 'pace-progress'
 import VeeValidate from 'vee-validate'
 import VueResource from 'vue-resource'
 import MdForm from './components/MdForm'
@@ -14,16 +13,12 @@ export const http = Vue.http
 
 export default {
   install ($Vue, options) {
-    $Vue.prototype.$pace = Pace
-
-    $Vue.prototype.$pace.start()
-
     // Register serviceWorker in production
     if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
         .then(function (registration) {
           // Registration was successful
-          console.log('Service Worker Registered')
+          console.log('ServiceWorker Registered', registration)
         }, function (err) {
           // registration failed :(
           console.log('ServiceWorker registration failed: ', err)
@@ -31,7 +26,7 @@ export default {
 
       navigator.serviceWorker.ready.then(function (registration) {
         // Service Worker ready :D
-        console.log('Service Worker Ready')
+        console.log('ServiceWorker Ready', registration)
       })
     }
 

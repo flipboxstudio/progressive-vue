@@ -1,11 +1,11 @@
-import * as TYPE from './types'
+import * as TYPES from './types'
 
 export default {
-  [TYPE.SET_PROFILE] (state, payload) {
+  [TYPES.SET_PROFILE] (state, payload) {
     Object.assign(state, payload)
   },
 
-  [TYPE.RESET_BASIC] (state) {
+  [TYPES.RESET_BASIC] (state) {
     Object.assign(state, {
       name: {
         title: '',
@@ -17,23 +17,23 @@ export default {
     })
   },
 
-  [TYPE.SET_FORM_LOADING] (state, formState) {
+  [TYPES.SET_FORM_LOADING] (state, formState) {
     state.form.loading = formState
   },
 
-  [TYPE.SET_FIRSTNAME] (state, value) {
+  [TYPES.SET_FIRSTNAME] (state, value) {
     state.name.first = value
   },
 
-  [TYPE.SET_LASTNAME] (state, value) {
+  [TYPES.SET_LASTNAME] (state, value) {
     state.name.last = value
   },
 
-  [TYPE.SET_EMAIL] (state, value) {
+  [TYPES.SET_EMAIL] (state, value) {
     state.email = value
   },
 
-  [TYPE.SET_PHONE] (state, value) {
+  [TYPES.SET_PHONE] (state, value) {
     state.phone = value
   }
 }

@@ -14,7 +14,7 @@ import MdBackdrop from 'vue-material/dist/components/mdBackdrop'
 // import MdBottomBar from 'vue-material/dist/components/mdBottomBar'
 import MdButton from 'vue-material/dist/components/mdButton'
 // import MdButtonToggle from 'vue-material/dist/components/mdButtonToggle'
-// import MdCard from 'vue-material/dist/components/mdCard'
+import MdCard from 'vue-material/dist/components/mdCard'
 // import MdCheckbox from 'vue-material/dist/components/mdCheckbox'
 // import MdChips from 'vue-material/dist/components/mdChips'
 // import MdDialog from 'vue-material/dist/components/mdDialog'
@@ -48,7 +48,7 @@ const Plugins = {
   // MdBottomBar,
   MdButton,
   // MdButtonToggle,
-  // MdCard,
+  MdCard,
   // MdCheckbox,
   // MdChips,
   // MdDialog,

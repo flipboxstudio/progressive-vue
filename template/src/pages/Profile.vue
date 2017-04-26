@@ -90,7 +90,7 @@
           <md-form-content>
             <md-form-section>
               <div slot="left" class="full-width">
-                <md-button class="md-raised md-accent full-width" @click.native="FETCH_PROFILE">Reload</md-button>
+                <md-button class="md-raised md-accent full-width" :disabled="!changed" @click.native="revert">Revert</md-button>
               </div>
 
               <div slot="right" class="full-width">
@@ -121,27 +121,32 @@
 </template>
 
 <script>
-import store from '@/store'
 import { Validator } from 'vee-validate'
-import { mapState, mapActions, mapMutations } from 'vuex'
-import * as PROFILE_TYPE from '@/store/modules/profile/types'
+import { mapState, mapMutations } from 'vuex'
+import * as PROFILE_TYPES from '@/store/modules/profile/types'
 
 export default {
+  data () {
+    return {
+      original: {
+        //
+      }
+    }
+  },
+
   computed: {
     ...mapState({
       profile: ({ profile }) => profile
-    })
-  },
+    }),
 
-  beforeRouteEnter (to, from, next) {
-    store.dispatch(PROFILE_TYPE.FETCH_PROFILE).then(() => {
-      next(true)
-    }, () => {
-      next(false)
-    })
+    changed () {
+      return JSON.stringify(this.original) !== JSON.stringify(this.profile)
+    }
   },
 
   created () {
+    this.original = JSON.parse(JSON.stringify(this.profile))
+
     Validator.updateDictionary({
       en: {
         attributes: {
@@ -155,20 +160,25 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      PROFILE_TYPE.FETCH_PROFILE
-    ]),
-
     ...mapMutations([
-      PROFILE_TYPE.RESET_BASIC,
-      PROFILE_TYPE.SET_FIRSTNAME,
-      PROFILE_TYPE.SET_LASTNAME,
-      PROFILE_TYPE.SET_EMAIL,
-      PROFILE_TYPE.SET_PHONE
+      PROFILE_TYPES.RESET_BASIC,
+      PROFILE_TYPES.SET_FIRSTNAME,
+      PROFILE_TYPES.SET_LASTNAME,
+      PROFILE_TYPES.SET_EMAIL,
+      PROFILE_TYPES.SET_PHONE,
+      PROFILE_TYPES.SET_PROFILE
     ]),
 
     submit () {
-      this.$validator.validateAll().then(() => {}, () => {})
+      this.$validator.validateAll().then(() => {
+        // Here's you can submit your changes
+      }, () => {
+        // TODO: Show snackbar
+      })
+    },
+
+    revert () {
+      this[PROFILE_TYPES.SET_PROFILE](this.original)
     }
   }
 }

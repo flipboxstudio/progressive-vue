@@ -3832,10 +3832,6 @@ osenv@0, osenv@^0.1.0, osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-pace-progress@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pace-progress/-/pace-progress-1.0.2.tgz#fdc565c57dd91725a3167b360bf2578d3c3b548d"
-
 package-json@^2.0.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/package-json/-/package-json-2.4.0.tgz#0d15bd67d1cbbddbb2ca222ff2edb86bcb31a8bb"
@@ -5437,9 +5433,9 @@ vue-style-loader@^2.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-style-loader@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.0.tgz#edeaee3b529d5796ef0b01bb7142a8a7e0025353"
+vue-style-loader@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.1.tgz#c8b639bb2f24baf9d78274dc17e4f264c1deda08"
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"

@@ -10,7 +10,6 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "pace-progress": "^1.0.2",
     "vee-validate": "^2.0.0-beta.25",
     "vue": "^2.2.2",
     "vue-material": "^0.7.1",
@@ -61,7 +60,7 @@
     "sw-precache-webpack-plugin": "^0.9.1",
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
-    "vue-style-loader": "^3.0.0",
+    "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.4.1",
     "webpack-bundle-analyzer": "^2.4.0",
