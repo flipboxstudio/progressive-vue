@@ -22,11 +22,11 @@ Vue.use(VueAnalytics, {
     exception: true
   },
   // Uncomment section below to enable debugging.
-  // debug: {
-  //   enabled: isDevelopment,
-  //   trace: isDevelopment,
-  //   sendHitTask: isDevelopment
-  // },
+  debug: {
+    enabled: isDevelopment,
+    trace: false,
+    sendHitTask: isDevelopment
+  },
   router
 })
 
