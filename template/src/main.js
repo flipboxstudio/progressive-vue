@@ -1,8 +1,11 @@
 import Vue from 'vue'
-import store from './store'
-import router from './router'
+
 import app from './app'
 import App from './App'
+
+import router from './router'
+
+import store from './store'
 
 Vue.use(app)
 

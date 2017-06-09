@@ -1,11 +1,34 @@
 import './materialize'
+
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
+import VueAnalytics from 'vue-analytics'
 import VueResource from 'vue-resource'
+
 import MdForm from './components/MdForm'
-import PageContent from './components/PageContent'
 import MdFormContent from './components/MdFormContent'
 import MdFormSection from './components/MdFormSection'
+
+import PageContent from './components/PageContent'
+
+import router from './router'
+
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
+Vue.use(VueAnalytics, {
+  id: process.env.GA_CODE, // see config/prod.env.js
+  autoTracking: {
+    page: true,
+    exception: true
+  },
+  // Uncomment section below to enable debugging.
+  // debug: {
+  //   enabled: isDevelopment,
+  //   trace: isDevelopment,
+  //   sendHitTask: isDevelopment
+  // },
+  router
+})
 
 Vue.use(VueResource)
 
@@ -14,7 +37,7 @@ export const http = Vue.http
 export default {
   install ($Vue, options) {
     // Register serviceWorker in production
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    if ((!isDevelopment) && ('serviceWorker' in navigator)) {
       navigator.serviceWorker.register('/service-worker.js', { scope: '/' })
         .then(function (registration) {
           // Registration was successful
